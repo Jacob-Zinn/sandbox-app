@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/rectangle_dark_outline"
+        android:src="@drawable/doctor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/name_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:layout_marginStart="9dp"
+        android:text="Ryan"
+        android:textSize="27sp"
+        app:fontFamily="@font/roboto_medium"
+        app:layout_constraintLeft_toRightOf="@id/img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:includeFontPadding="false"
+        android:text="Sanchez"
+        android:textSize="27sp"
+        app:fontFamily="@font/roboto_medium"
+        app:layout_constraintLeft_toRightOf="@id/img"
+        app:layout_constraintTop_toBottomOf="@id/name_first" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="18dp"
+        android:text="Industry Expertise:"
+        android:textSize="16sp"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constraintLeft_toRightOf="@id/img"
+        app:layout_constraintTop_toBottomOf="@id/name_last" />
+
+    <TextView
+        android:id="@+id/text_industry_expertise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="18dp"
+        android:text="Industry Expertise:"
+        android:textSize="16sp"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constraintLeft_toRightOf="@id/img"
+        app:layout_constraintTop_toBottomOf="@id/name_last" />
+
+
+    <TextView
+        android:id="@+id/industry_expertise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3sp"
+        android:maxWidth="200dp"
+        android:maxLines="2"
+        android:text="Family Doctor, Neural Seurgery, Oncology"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:flow_horizontalAlign="start"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="@id/text_industry_expertise"
+        app:layout_constraintTop_toBottomOf="@id/text_industry_expertise" />
+
+    <com.example.sandbox.views.DividerLine
+        android:id="@+id/dividerLine2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintLeft_toRightOf="@id/img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img" />
+
+
+    <TextView
+        android:id="@+id/text_nurse_certified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:drawableStart="@drawable/ic_check_green_24dp"
+        android:text="5 Certified Nurse Reviews"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img"/>
+
+
+    <TextView
+        android:id="@+id/text_progress_bar_bsm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:text="Bed side manners"
+        android:textSize="16sp"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nurse_certified" />
+
+    <com.example.sandbox.views.ProgressBarHorizontal
+        android:id="@+id/rating_bedside_manners"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_progress_bar_bsm" />
+
+    <TextView
+        android:id="@+id/text_progress_bar_ie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:text="Industry expertise"
+        android:textSize="16sp"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating_bedside_manners" />
+
+    <com.example.sandbox.views.ProgressBarHorizontal
+        android:id="@+id/rating_industry_expertise"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_progress_bar_ie" />
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
