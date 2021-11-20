@@ -1,0 +1,283 @@
+<resources>
+    <string name="app_name">LITPro MX</string>
+    <string name="fragment_feed">Feed</string>
+    <string name="fragment_account">Account</string>
+
+    <!-- COMPOUND STRINGS -->
+    <string name="string_single_var">%1$s</string>
+    <string name="string_plus_s">%1$ss</string>
+    <string name="string_double_var_with_space">%1$s %2$s</string>
+    <string name="lap_hidden">LAP HIDDEN&#160;</string>
+    <string name="ft_mi">%1$sft/%2$smi</string>
+    <string name="m_km">%1$sm/%2$skm</string>
+    <string name="speed_plus_kph">%1$skph</string>
+    <string name="speed_plus_mph">%1$smph</string>
+    <string name="app_version">%1$s Android version %2$s</string>
+    <string name="total_seat_time_percentage">%1$shrs</string>
+    <string name="sessions_synced">Sessions Synced:\t%1$s</string>
+    <string name="limited_lap_preview_title">Lap %1$d in %2$ss</string>
+
+    <!-- DISTANCE -->
+    <string name="imperial">Imperial</string>
+    <string name="metric">Metric</string>
+    <string name="duration">duration</string>
+    <string name="miles">miles</string>
+    <string name="kilometers">kilometers</string>
+    <string name="avg_mph">avg mph</string>
+    <string name="avg_kph">avg kph</string>
+    <string name="distance">Distance</string>
+    <string name="average_speed">Average Speed</string>
+
+    <!-- TIMING -->
+    <string name="_0_0">0.0</string>
+    <string name="_0_00_00">0:00:00</string>
+    <string name="hours">hours</string>
+    <string name="total_lap_time">total lap time</string>
+    <string name="lap_times">Lap Times</string>
+    <string name="fastest_lap">Fastest Lap</string>
+
+    <!-- IMAGE DESCRIPTIONS -->
+    <string name="sessions_lap_overlay">Sessions Lap Overlay</string>
+    <string name="arrow_facing_right">arrow facing right</string>
+    <string name="settings_icon">settings icon</string>
+    <string name="back_button">back button</string>
+    <string name="litpro_logo">LITPro logo</string>
+    <string name="litpro_mx">LITPro MX</string>
+    <string name="sattelite_image_with_track_line_overlay">Satellite image with track-line overlay</string>
+    <string name="informational_icon">Informational Icon</string>
+
+    <!-- ACCOUNT FRAGMENT -->
+    <string name="unit_type">unit Type:</string>
+    <string name="first">first:</string>
+    <string name="last">last:</string>
+    <string name="email">email:</string>
+    <string name="log_out">log out</string>
+    <string name="auth_token">auth_token</string>
+    <string name="add_nphoto">add\nphoto</string>
+    <string name="manage_garmin_account">Manage GARMIN Account</string>
+    <string name="link_garmin_account">Link GARMIN Account</string>
+    <string name="manage_polar_account">Manage POLAR Account</string>
+    <string name="link_polar_account">Link POLAR Account</string>
+    <string name="watch_litpro_training_videos">Watch LITPro training videos</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="photo_gallery">Photo Gallery</string>
+    <string name="track_name">Track Name</string>
+    <string name="saturday_june_19_12_00am_12_00pm">Saturday June 19, 12:00AM - 12:00PM</string>
+    <string name="loading_symbol_with_logo">loading symbol with logo</string>
+    <string name="logout">Logout</string>
+    <string name="photo_options">Photo options</string>
+    <string name="get_help_more"><![CDATA[Get Help & More]]></string>
+
+    <!-- LOGIN AND REGISTRATION -->
+    <string name="email_field">Email</string>
+    <string name="field_password">Password</string>
+    <string name="field_username">Username</string>
+    <string name="field_password_confirmation">Password Confirmation</string>
+    <string name="field_first_name">First name</string>
+    <string name="field_last_name">Last name</string>
+    <string name="field_sign_up">Sign up ></string>
+    <string name="register">Register</string>
+    <string name="field_login">Login ></string>
+    <string name="enter_a_username">Enter a username</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="current_password">Current password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="new_password">New password</string>
+    <string name="change_password">Change password</string>
+    <string name="your_email">Your email</string>
+    <string name="your_username">Your username</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="launcher">Launcher</string>
+    <string name="login">Login</string>
+    <string name="text_login">Login</string>
+    <string name="text_register">Signup</string>
+    <string name="text_forgot_password">forgot your password?</string>
+    <string name="invalid_login_credentials">Invalid login</string>
+    <string name="retry_authentication">Retry Authentication</string>
+
+    <!-- CONSISTENCY SCORE -->
+    <string name="perfection_championship_winning_standard">Perfection, championship winning standard</string>
+    <string name="world_class_effort_you_are_among_the_elite">World class effort… You are among the elite</string>
+    <string name="great_session_keep_up_this_solid_effort">Great session, keep up this solid effort</string>
+    <string name="well_done_consistency_keeps_you_progressing">Well done, consistency keeps you progressing</string>
+    <string name="focus_on_keeping_your_laptimes_consistent">Focus on keeping your laptimes consistent</string>
+    <string name="ride_more_and_watch_this_score_for_improvement">Ride more and watch this score for improvement</string>
+    <string name="consistency_score_detail_description">This gets improved by pacing yourself and keeping your lap times consistent. Your average lap time is %1$s. Your 10-lap score is %2$s.</string>
+    <string name="this_feature_requires_multiple_laps">This feature requires multiple laps</string>
+    <string name="score_not_applicable_txt">Make sure your track configuration has at least one segment gate defined and that you do more than one lap in a session to get the benefit of this feature.</string>
+
+    <!-- DETAIL SESSION -->
+    <string name="sgmt">sgmt</string>
+    <string name="crnr">crnr</string>
+    <string name="target_potential">TARGET POTENTIAL</string>
+    <string name="segment_summary">SEGMENT SUMMARY</string>
+    <string name="corner_summary">CORNER SUMMARY</string>
+    <string name="session_summary">SESSION SUMMARY</string>
+    <string name="hr_zones">HR ZONES</string>
+    <string name="account_information_icon">account_information_icon</string>
+    <string name="no_reference_lap_found">No Reference Lap Found</string>
+    <string name="lap_summary">LAP SUMMARY</string>
+    <string name="consistency_score">consistency score</string>
+    <string name="best_corners">best corners</string>
+    <string name="increase_your_average_speed">Increase your average speed</string>
+    <string name="seg_data_invalid">SEGMENT DATA INVALID</string>
+    <string name="not_a_full_lap">NOT A FULL LAP</string>
+    <string name="summary">summary</string>
+
+    <!-- FEED -->
+    <string name="give_feedback">give feedback</string>
+    <string name="let_us_know_what_you_think">Let us know what you think…</string>
+    <string name="we_use_your_feedback_to_make_this_app_better">We use your feedback to make this app better!</string>
+    <string name="this_empty_feed_is_killing_us">This empty feed is killing us!!</string>
+    <string name="empty_feed_encouragment">No activity in the last 60 days… Get out and ride!\nor link accounts with another rider</string>
+    <string name="link_a_polar_or_garmin_account_to_get_started">Link Polar or Garmin to get started :)</string>
+    <string name="link_gps_watch">link gps watch</string>
+    <string name="ride_with_gps_and_your_sessions_will_appear_here">Ride with GPS, and your sessions will appear here</string>
+    <string name="add_new">add new</string>
+    <string name="overall">OVERALL</string>
+
+    <!-- SESSIONS FRAGMENT-->
+    <string name="add_session">ADD\nSESSION</string>
+    <string name="edit_filter">edit\nfilter</string>
+    <string name="seat_time_target">seat time target</string>
+    <string name="lap_segment_times_heart_rate_zones"><![CDATA[Lap Segment Times & Heart Rate Zones]]></string>
+    <string name="filter_icon">filter_icon</string>
+    <string name="_12_week_seat_time">12-WEEK <b>SEAT TIME</b></string>
+    <string name="choose_a_day">Choose a Day</string>
+    <string name="choose_a_different_track">Choose a Different Track</string>
+    <string name="clear_filter">Clear Filter</string>
+    <string name="choose_a_different_day">Choose a Different Day</string>
+    <string name="all_days_at_track">All Days at Track</string>
+    <string name="add_track_filter">Add Track Filter</string>
+    <string name="show_twelve_week_target">Show Twelve Week Target</string>
+    <string name="show_hidden_sessions">Show Hidden Sessions</string>
+    <string name="hide_hidden_sessions">Hide Hidden Sessions</string>
+    <string name="hide">Hide</string>
+    <string name="unhide">Unhide</string>
+    <string name="all_tracks">All Tracks</string>
+    <string name="all_days">All Days</string>
+    <string name="sessions_title">Sessions</string>
+    <string name="sessions">sessions</string>
+    <string name="_12_week_target">12 Week Target</string>
+
+    <!-- PRO STATUS INFORMATION -->
+    <string name="twelve_week_target_info_text_1">Only the top 10% of LITPro athletes spend 10 hours
+        or more on the bike in a 12-week period.</string>
+    <string name="twelve_week_target_info_text_2">Challenge yourself to stay consistent and healthy
+        enough to achieve this status and if you do we\'ll help you keep track of that by adding
+        these features to your profile picture. Check them out below!</string>
+    <string name="color_ring_status_info">Any seat time in the past 14 days and you\'ll get this
+        ring on your profile pic. Try and keep that ring there.</string>
+    <string name="color_ring_status">Color ring status</string>
+    <string name="thumbs_up_status_info">10 hours of seat time or more in the past 12 weeks and
+        we\'ll add the \"Thumbs Up\" status to your profile pic.</string>
+    <string name="thumbs_up_status">Thumbs up status</string>
+
+    <!-- SOCIAL -->
+    <string name="linked_teammates">Linked Teammates</string>
+    <string name="add_teammate">add teammate</string>
+    <string name="add_teammate_or_riding_buddy">Add a teammate or riding buddy?</string>
+    <string name="add_an_athlete">Add an athlete</string>
+    <string name="add_an_athlete_info">Clicking \"Continue\" below will launch the Data Sharing tool in a browser. Log in, if you aren\'t already, and navigate to the \"Data Sharing\" tool</string>
+    <string name="linking_accounts_info">Linking accounts with other you ride with makes their data available in the feed and throughout the app.</string>
+    <string name="save">Save</string>
+
+    <!-- MISCELLANEOUS -->
+    <string name="n_a">N/A</string>
+    <string name="text_error">Error</string>
+    <string name="text_success">Success</string>
+    <string name="text_ok">OK</string>
+    <string name="info">Info</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes">yes</string>
+    <string name="close">Close</string>
+    <string name="_0">0%</string>
+    <string name="_0_plain">0</string>
+    <string name="_0_0hrs">0.0hrs</string>
+    <string name="cancel">Cancel</string>
+    <string name="continue1">Continue</string>
+    <string name="options">Options</string>
+    <string name="laps">laps</string>
+    <string name="AuthNavHost">AuthNavHost</string>
+
+    <!-- BOTTOM TABS -->
+    <string name="account">Account</string>
+    <string name="analytics">Analytics</string>
+    <string name="add_data">Add Data</string>
+
+    <!-- NOTIFICATIONS -->
+    <string name="notification_new_session_description">Sends alert when a new session is available to be viewed in the app.</string>
+    <string name="notification_challenge_update_description">Sends alert with an update pertaining to a current LITPro Challenge.</string>
+    <string name="default_notification_channel_id">default notification channel</string>
+    <string name="dismiss">dismiss</string>
+    <string name="learn_more">Learn More</string>
+    <string name="notification_icon">notification icon</string>
+
+    <!-- FRAGMENT NAMES FOR GA-->
+    <string name="launcherfragment">LauncherFragment</string>
+    <string name="loginfragment">LoginFragment</string>
+    <string name="registerfragment">RegisterFragment</string>
+    <string name="accountfragment">AccountFragment</string>
+    <string name="detailsessionfragment">DetailSessionFragment</string>
+    <string name="feedfragment">FeedFragment</string>
+    <string name="adddatafragment">AddDataFragment</string>
+    <string name="synchistoryfragment">SyncHistoryFragment</string>
+    <string name="syncdatafragment">SyncDataFragment</string>
+    <string name="sessionsfragment">SessionsFragment</string>
+    <string name="leaderboardfragment">LeaderboardFragment</string>
+    <string name="startingguidefragment">StartingGuideFragment</string>
+    <string name="link_click_challenge">link_click_challenge</string>
+    <string name="link_click_challenge_event">link_click_challenge_event</string>
+    <string name="link_click_add_friend">link_click_add_friend</string>
+    <string name="link_click_add_friend_event">link_click_add_friend_event</string>
+    <string name="link_click_help">link_click_help</string>
+    <string name="link_click_help_event">link_click_help_event</string>
+    <string name="link_click_gps_watch">link_click_gps_watch</string>
+    <string name="link_click_gps_watch_event">link_click_gps_watch_event</string>
+
+    <!-- SYNC -->
+    <string name="past_nsyncs">past\nsyncs</string>
+    <string name="sync_nnow">Sync\nNow</string>
+    <string name="nickname">Nickname</string>
+    <string name="my_device_s">My Device<i>(s)</i></string>
+    <string name="quick_start_guide">Quick Start Guide</string>
+    <string name="sync_history">sync history</string>
+    <string name="sync_history_caps">Sync\nHistory</string>
+    <string name="jan_01_2021_12_00am">Jan 01 2021 12:00AM</string>
+    <string name="you_don_t_have_any_devices_associated_with_your_account_yet_if_you_need_help_gettings_started_click_the_quot_quick_start_guide_quot_button_above">You don\'t have any devices associated with your account yet. If you need help gettings started, click the \"Quick Start Guide\" button below!</string>
+    <string name="syncs">Syncs</string>
+    <string name="pull_to_refresh_this_list_if_you_have_push_notifications_enabled_it_will_refresh_automatcially">Pull to refresh this list. If you have push notifications enabled, it will refresh automatcially.</string>
+    <string name="your_sessions_will_appear_in_the_app_after_you_finish_syncing_your_gps_device_to_the_polar_flow_app_or_the_garmin_connect_app">Your sessions will appear in \"analytics\" tab once you finish syncing your GPS device to the Polar Flow app or the Garmin Connect app.</string>
+    <string name="training">Training</string>
+    <string name="external_accounts">External Accounts</string>
+    <string name="sync_caps">Sync</string>
+    <string name="sync_data">Sync Data</string>
+    <string name="sync_now">sync\nnow</string>
+    <string name="device">Device:</string>
+    <string name="battery_level">battery level</string>
+    <string name="estimated_sync_time">estimated sync time</string>
+    <string name="refresh">Refresh</string>
+    <string name="currently">currently:</string>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

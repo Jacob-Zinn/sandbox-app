@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main theme colors -->
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#7d7d7d</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Secondary theme colors -->
+    <color name="tealDark">#0094DE</color>
+    <color name="tealLight">#9FDAF7</color>
+    <color name="link_blue">#0000EE</color>
+
+    <!-- other -->
+    <color name="black">#000</color>
+    <color name="red2">#fc8b8d</color>
+    <color name="grey1">#f2f2f2</color>
+    <color name="grey2">#c4c4c4</color>
+    <color name="grey3">#a8a8a8</color>
+    <color name="grey4">#7d7d7d</color>
+    <color name="grey5">#5c5c5c</color>
+    <color name="grey6">#494949</color>
+
+    <color name="default_background_color">#EEEEEE</color>
+
+    <color name="white">#fff</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_transparent_75">#BFF2F2F2</color>
+    <color name="white_transparent_50">#80F2F2F2</color>
+    <color name="white_transparent_98">#FAFFFFFF</color>
+    <color name="dark_grey">#272b31</color>
+    <color name="grey">#555555</color>
+    <color name="lpgrey">#92918D</color>
+    <color name="light_grey">#eaeaea</color>
+    <color name="soft_white">#fff4f5f7</color>
+
+    <color name="red">#366e71</color>
+    <color name="light_red">#41a0a5</color>
+    <color name="red_extra_light">#abfbff</color>
+    <color name="yellow">#be5030</color>
+    <color name="light_yellow">#e97858</color>
+    <color name="bright_yellow">#f78c6d</color>
+
+    <color name="info_blue">#0D66FF</color>
+</resources>

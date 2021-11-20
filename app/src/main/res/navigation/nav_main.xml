@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    android:label=""
+    app:startDestination="@id/launcherFragment">
+
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="com.example.sandbox.ui.LauncherFragment"
+        tools:layout="@layout/fragment_launcher"
+        android:label="fragment_launcher">
+
+        <action
+            android:id="@+id/action_launcherFragment_to_analytics"
+            app:destination="@id/nav_analytics"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <include app:graph="@navigation/nav_account" />
+    <include app:graph="@navigation/nav_analytics" />
+</navigation>

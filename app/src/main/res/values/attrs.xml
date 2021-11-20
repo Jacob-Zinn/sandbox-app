@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DialView">
+        <attr name="fanColor1" format="color" />
+        <attr name="fanColor2" format="color" />
+        <attr name="fanColor3" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ProfilePicView">
+        <attr name="hasProRing" format="boolean" />
+        <attr name="hasThumbsUp" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DividerLine">
+        <attr name="offsetType" format="integer" />
+        <attr name="offsetPercentageInt" format="float" />
+        <attr name="dividerLineColor" format="color" />
+        <attr name="lineStrokeDip" format="float"/>
+        <attr name="verticalOrientation" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SessionSummaryData">
+        <attr name="summaryLineColor" format="color" />
+        <attr name="summaryLineStroke" format="float"/>
+        <attr name="summaryRedColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="IsolatedTrackSegmentView">
+        <attr name="backgroundColor" format="color" />
+        <attr name="tag" format="integer"/>
+        <attr name="userInteractionEnabled" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleCrop">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+</resources>
