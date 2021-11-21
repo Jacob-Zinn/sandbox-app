@@ -5,7 +5,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
 
 
 @Entity(tableName = "doctor")
@@ -26,9 +25,6 @@ data class Doctor(
 
     @Expose
     @ColumnInfo(name = "years_experience") var years_experience: Int,
-
-    @Expose
-    @ColumnInfo(name = "types_of_doctors") var types_of_doctors: Int,
 
     @Expose
     @ColumnInfo(name = "expertise_1") var expertise_1: String,

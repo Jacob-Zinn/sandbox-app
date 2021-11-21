@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
 import com.creators.sandbox.databinding.LayoutFilterListItemBinding
-import com.creators.sandbox.models.ListItem
+import timber.log.Timber
 
 class FilterListAdapter constructor(
     private val interaction: Interaction? = null
@@ -122,16 +122,19 @@ class FilterListAdapter constructor(
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(item: String) = with(itemView) {
-            itemView.setOnClickListener {
-                interaction?.onItemSelected(bindingAdapterPosition, item, "")
+            itemBinding.filterItem.setOnClickListener {
+                interaction?.onItemSelected(bindingAdapterPosition, item)
+                Timber.d("Does is work here?zzz")
             }
+            itemBinding.filterItem.text = item
+
         }
     }
 
 
     interface Interaction {
 
-        fun onItemSelected(position: Int, item: String, tag: String)
+        fun onItemSelected(position: Int, item: String)
 
         fun restoreListPosition()
     }

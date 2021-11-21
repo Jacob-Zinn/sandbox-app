@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.creators.sandbox.R
 import com.creators.sandbox.adapters.FilterListAdapter
@@ -44,16 +45,17 @@ class FilterExpertiseFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initMainFeedRecyclerView()
+        initRecAdapter()
     }
 
     override fun onResume() {
         super.onResume()
+        subscribeObservers()
 
-        viewModel.getExpertiseFilters()
+        binding.nextBtn.setOnClickListener(this)
         viewModel.queries.clear()
         setLogoVisible(true)
-        subscribeObservers()
+        viewModel.getExpertiseFilters()
     }
 
     override fun onPause() {
@@ -80,24 +82,36 @@ class FilterExpertiseFragment : BaseFragment(),
         }
     }
 
-    private fun initMainFeedRecyclerView() {
+    private fun initRecAdapter() {
 
         binding.recView.apply {
             layoutManager =
-                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.GAP_HANDLING_NONE)
+                StaggeredGridLayoutManager(6, StaggeredGridLayoutManager.GAP_HANDLING_NONE)
 
             recyclerAdapter = FilterListAdapter(
                 this@FilterExpertiseFragment
             )
+            adapter = recyclerAdapter
         }
     }
 
-    override fun onItemSelected(position: Int, item: String, tag: String) {
+    override fun onItemSelected(position: Int, item: String) {
+
         when {
-            viewModel.queries.expertise1 != null -> viewModel.queries.expertise1 = item
-            viewModel.queries.expertise2 != null -> viewModel.queries.expertise2 = item
-            viewModel.queries.expertise3 != null -> {
+            viewModel.queries.expertise1 == null -> {
+                viewModel.queries.expertise1 = item
+                binding.filter1.text = item
+                binding.filter1.visibility = View.VISIBLE
+            }
+            viewModel.queries.expertise2 == null -> {
+                viewModel.queries.expertise2 = item
+                binding.filter2.text = item
+                binding.filter2.visibility = View.VISIBLE
+            }
+            viewModel.queries.expertise3 == null -> {
                 viewModel.queries.expertise3 = item
+                binding.filter3.text = item
+                binding.filter3.visibility = View.VISIBLE
                 navigateToNextFragment()
             }
         }
@@ -132,6 +146,7 @@ class FilterExpertiseFragment : BaseFragment(),
     }
 
     private fun navigateToNextFragment() {
+        Timber.d("zzz tring to navigate")
         try {
             findNavController().navigate(R.id.action_filterExpertiseFragment_to_filterQualitiesFragment)
         } catch (e: NullPointerException) {

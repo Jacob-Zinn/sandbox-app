@@ -1,114 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="18dp"
     tools:context=".ui.MainFragment">
 
-    <View
-        android:id="@+id/focusable_view"
-        android:layout_width="0.5dp"
-        android:layout_height="0.5dp"
-        android:focusableInTouchMode="true">
-
-    </View>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/feed_holder"
+    <TextView
+        android:id="@+id/filter_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:paddingBottom="9dp"
+        android:text="Area of Expertise"
+        android:textSize="30sp"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/linked_athletes_rec_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey1"
-            android:elevation="15dp"
-            android:overScrollMode="always" />
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_thin"
+        android:paddingBottom="18dp"
+        android:text="Select up to 3 fields that best suit your needs, then click next when you've finished."
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filter_title" />
 
-        <!-- START Views displayed if feed null or empty -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/getting_started"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:elevation="6dp"
-            android:visibility="gone">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description" />
 
-                <TextView
-                    android:id="@+id/getting_started_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:text="@string/link_a_polar_or_garmin_account_to_get_started"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/roboto_medium"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/getting_started_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/getting_started_title"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="9dp"
-                    android:includeFontPadding="false"
-                    android:lineSpacingExtra="0dp"
-                    android:text="@string/ride_with_gps_and_your_sessions_will_appear_here"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/roboto_light"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/getting_started_button"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/getting_started_title"
-                    tools:ignore="RtlSymmetry" />
+    <TextView
+        android:id="@+id/Filters_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="9dp"
+        android:text="Filters:"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/filter_1"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="623dp" />
 
-                <Button
-                    android:id="@+id/getting_started_button"
-                    android:layout_width="140dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/animated_red_button"
-                    android:text="@string/link_gps_watch"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto_bold"
-                    app:layout_constraintBottom_toBottomOf="@id/getting_started_description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/getting_started_title"
-                    app:layout_constraintTop_toTopOf="@id/getting_started_description" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/filter_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:text="Kind"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/filter_2"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/filter_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:text="Nice"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/filter_3"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- END Views displayed if feed null or empty -->
+    <TextView
+        android:id="@+id/filter_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:text="Lovely"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_red_outline"
+        android:padding="9dp"
+        android:paddingStart="21dp"
+        android:paddingEnd="21dp"
+        android:text="Next"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/feed_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

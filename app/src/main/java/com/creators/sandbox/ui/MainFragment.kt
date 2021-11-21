@@ -44,7 +44,7 @@ class MainFragment : BaseFragment(),
         binding.nearBtn.setOnClickListener(this)
         binding.experienceBtn.setOnClickListener(this)
         binding.personableBtn.setOnClickListener(this)
-        binding.searchAdvanced.setOnClickListener(this)
+        binding.thoughtfulBtn.setOnClickListener(this)
     }
 
     override fun onPause() {
@@ -68,15 +68,30 @@ class MainFragment : BaseFragment(),
         _binding = null
     }
 
+    enum class FilterInteger(val filter: Int) {
+        NEAR(1),
+        PERSONABLE(2),
+        EXPERIENCED(3)
+    }
+
+    private fun skipToResults(filterInt: FilterInteger) {
+        val bundle = Bundle()
+        bundle.putInt("filterInt", filterInt.filter)
+        try {
+            findNavController().navigate(R.id.action_mainFragment_to_previewDoctorsFragment, bundle)
+        } catch (e: NullPointerException) {
+            Timber.d( "onItemSelected: Session selected from recyclerview")
+        }
+    }
+
     override fun onClick(v: View?) {
         when (v!!) {
-            binding.searchAdvanced -> {
-                try {
-                    findNavController().navigate(R.id.action_feedFragment_to_filterFragment)
-                } catch (e: NullPointerException) {
-                    Timber.e(e, "navigateToSessionsFragmentFromRecViewSelection: ERROR: Failed to navigate")
-                }
+            binding.thoughtfulBtn -> {
+                findNavController().navigate(R.id.action_mainFragment_to_filterExpertiseFragment)
             }
+            binding.experienceBtn -> skipToResults(FilterInteger.EXPERIENCED)
+            binding.nearBtn -> skipToResults(FilterInteger.NEAR)
+            binding.personableBtn -> skipToResults(FilterInteger.PERSONABLE)
         }
     }
 

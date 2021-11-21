@@ -3,29 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- provide a different drawable for each state-->
-    <item android:id="@+id/pressed" android:drawable="@drawable/button_light_red_drawable"
+    <item android:id="@+id/pressed" android:drawable="@drawable/button_light_red_drawable_rounded"
         android:state_pressed="true"/>
-    <item android:id="@+id/focused" android:drawable="@drawable/button_light_red_drawable"
+    <item android:id="@+id/focused" android:drawable="@drawable/button_light_red_drawable_rounded"
         android:state_focused="true"/>
     <item android:id="@+id/default_activity_button"
-        android:drawable="@drawable/button_red_drawable"/>
+        android:drawable="@drawable/button_red_drawable_rounded"/>
 
     <!-- specify a transition -->
     <transition android:fromId="@+id/default_activity_button" android:toId="@+id/pressed">
         <animation-list>
-            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable"/>
+            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable_rounded"/>
         </animation-list>
     </transition>
     <transition android:fromId="@+id/pressed" android:toId="@+id/default_activity_button">
         <animation-list>
-            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable"/>
-            <item android:duration="300" android:drawable="@drawable/button_red_drawable"/>
+            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable_rounded"/>
+            <item android:duration="300" android:drawable="@drawable/button_red_drawable_rounded"/>
         </animation-list>
     </transition>
     <transition android:fromId="@+id/pressed" android:toId="@+id/focused">
         <animation-list>
-            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable"/>
-            <item android:duration="300" android:drawable="@drawable/button_red_drawable"/>
+            <item android:duration="300" android:drawable="@drawable/button_light_red_drawable_rounded"/>
+            <item android:duration="300" android:drawable="@drawable/button_red_drawable_rounded"/>
         </animation-list>
     </transition>
 </animated-selector>

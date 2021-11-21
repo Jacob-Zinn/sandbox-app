@@ -1,0 +1,130 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 39,
+    "identityHash": "07a16db82ba7fd49b0928cba67713eba",
+    "entities": [
+      {
+        "tableName": "doctor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `bedside_manners` INTEGER NOT NULL, `years_experience` INTEGER NOT NULL, `types_of_doctors` INTEGER NOT NULL, `expertise_1` TEXT NOT NULL, `expertise_2` TEXT NOT NULL, `expertise_3` TEXT NOT NULL, `location` TEXT NOT NULL, `distance` INTEGER NOT NULL, `doctor_qualities_1` TEXT NOT NULL, `doctor_qualities_2` TEXT NOT NULL, `doctor_qualities_3` TEXT NOT NULL, `doctor_desciption_1` TEXT NOT NULL, `doctor_desciption_2` TEXT NOT NULL, `doctor_desciption_3` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "first_name",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "last_name",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bedside_manners",
+            "columnName": "bedside_manners",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "years_experience",
+            "columnName": "years_experience",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "types_of_doctors",
+            "columnName": "types_of_doctors",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expertise_1",
+            "columnName": "expertise_1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expertise_2",
+            "columnName": "expertise_2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expertise_3",
+            "columnName": "expertise_3",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distance",
+            "columnName": "distance",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_qualities_1",
+            "columnName": "doctor_qualities_1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_qualities_2",
+            "columnName": "doctor_qualities_2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_qualities_3",
+            "columnName": "doctor_qualities_3",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_desciption_1",
+            "columnName": "doctor_desciption_1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_desciption_2",
+            "columnName": "doctor_desciption_2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctor_desciption_3",
+            "columnName": "doctor_desciption_3",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '07a16db82ba7fd49b0928cba67713eba')"
+    ]
+  }
+}

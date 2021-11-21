@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.creators.sandbox.R
 import com.creators.sandbox.adapters.FilterListAdapter
@@ -44,17 +45,19 @@ class FilterQualitiesFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initMainFeedRecyclerView()
+        initRecAdapter()
     }
 
     override fun onResume() {
         super.onResume()
 
+        subscribeObservers()
+
         binding.nextBtn.text = "Finish"
         binding.filterTitle.text = "Outstanding Qualities"
+        binding.nextBtn.setOnClickListener(this)
         viewModel.getQualitiesFilters()
         setLogoVisible(true)
-        subscribeObservers()
     }
 
     override fun onPause() {
@@ -81,24 +84,36 @@ class FilterQualitiesFragment : BaseFragment(),
         }
     }
 
-    private fun initMainFeedRecyclerView() {
+    private fun initRecAdapter() {
 
         binding.recView.apply {
             layoutManager =
-                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.GAP_HANDLING_NONE)
+                StaggeredGridLayoutManager(6, StaggeredGridLayoutManager.GAP_HANDLING_NONE)
 
             recyclerAdapter = FilterListAdapter(
                 this@FilterQualitiesFragment
             )
+            adapter = recyclerAdapter
         }
     }
 
-    override fun onItemSelected(position: Int, item: String, tag: String) {
+    override fun onItemSelected(position: Int, item: String) {
+        Timber.d("This should work zzz")
         when {
-            viewModel.queries.quality1 != null -> viewModel.queries.quality1 = item
-            viewModel.queries.quality2 != null -> viewModel.queries.quality2 = item
-            viewModel.queries.quality3 != null -> {
+            viewModel.queries.quality1 == null -> {
+                viewModel.queries.quality1 = item
+                binding.filter1.text = item
+                binding.filter1.visibility = View.VISIBLE
+            }
+            viewModel.queries.quality2 == null -> {
+                viewModel.queries.quality2 = item
+                binding.filter2.text = item
+                binding.filter2.visibility = View.VISIBLE
+            }
+            viewModel.queries.quality3 == null -> {
                 viewModel.queries.quality3 = item
+                binding.filter3.text = item
+                binding.filter3.visibility = View.VISIBLE
                 navigateToNextFragment()
             }
         }

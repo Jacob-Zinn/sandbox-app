@@ -3,13 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_analytics"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/launcherFragment">
 
     <fragment
-        android:id="@+id/feedFragment"
-        android:name="com.example.sandbox.ui.MainFragment"
+        android:id="@+id/launcherFragment"
+        android:name="com.creators.sandbox.ui.LauncherFragment"
         android:label=""
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_launcher" >
+        <action
+            android:id="@+id/action_launcherFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.creators.sandbox.ui.MainFragment"
+        android:label=""
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_previewDoctorsFragment"
+            app:destination="@id/previewDoctorsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainFragment_to_filterExpertiseFragment"
+            app:destination="@id/filterExpertiseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/filterExpertiseFragment"
+        android:name="com.creators.sandbox.ui.FilterExpertiseFragment"
+        android:label=""
+        tools:layout="@layout/fragment_filter">
+        <action
+            android:id="@+id/action_filterExpertiseFragment_to_filterQualitiesFragment"
+            app:destination="@id/filterQualitiesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/filterQualitiesFragment"
+        android:name="com.creators.sandbox.ui.FilterQualitiesFragment"
+        android:label=""
+        tools:layout="@layout/fragment_filter">
+        <action
+            android:id="@+id/action_filterQualitiesFragment_to_previewDoctorsFragment"
+            app:destination="@id/previewDoctorsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/previewDoctorsFragment"
+        android:name="com.creators.sandbox.ui.PreviewDoctorsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_preview_doctors">
+        <action
+            android:id="@+id/action_previewDoctorsFragment_to_detailDoctorFragment"
+            app:destination="@id/detailDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailDoctorFragment"
+        android:name="com.creators.sandbox.ui.DetailDoctorFragment"
+        android:label=""
+        tools:layout="@layout/fragment_detail_doctor"/>
+
 
 
 </navigation>

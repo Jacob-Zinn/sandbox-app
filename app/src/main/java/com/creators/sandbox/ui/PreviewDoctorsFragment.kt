@@ -50,15 +50,41 @@ class PreviewDoctorsFragment: BaseFragment(),
     override fun onResume() {
         super.onResume()
 
-        viewModel.getFilteredDoctors()
         subscribeObservers()
         setLogoVisible(true)
+        initSearchFiltersFromBundle()
     }
 
     override fun onPause() {
         super.onPause()
         setLogoVisible(false)
         saveLayoutManagerState()
+    }
+
+    private fun initSearchFiltersFromBundle() {
+        //Receives arguments from Main Feed fragment mainFeedRecView
+        arguments?.let { args ->
+            quickResults(args.getInt("filterInt"))
+            arguments = null
+        }
+        if (arguments == null) {
+            viewModel.getFilteredDoctors()
+        }
+    }
+
+
+    private fun quickResults(int: Int) {
+        when  {
+            int == MainFragment.FilterInteger.PERSONABLE.filter -> {
+                viewModel.getFilteredDoctorsByCare()
+            }
+            int == MainFragment.FilterInteger.NEAR.filter -> {
+                viewModel.getFilteredDoctorsByDistance()
+            }
+            int == MainFragment.FilterInteger.EXPERIENCED.filter -> {
+                viewModel.getFilteredDoctorsByExperience()
+            }
+        }
     }
 
     private fun subscribeObservers() {
@@ -85,6 +111,7 @@ class PreviewDoctorsFragment: BaseFragment(),
             recyclerAdapter = PreviewDoctorListAdapter(
                 this@PreviewDoctorsFragment
             )
+            adapter = recyclerAdapter
         }
     }
 

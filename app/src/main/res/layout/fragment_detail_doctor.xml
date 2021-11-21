@@ -15,6 +15,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:src="@drawable/ic_baseline_star_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <TextView
         android:id="@+id/name_first"
@@ -41,23 +50,12 @@
         app:layout_constraintTop_toBottomOf="@id/name_first" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="18dp"
-        android:text="Industry Expertise:"
-        android:textSize="16sp"
-        app:fontFamily="@font/roboto_light"
-        app:layout_constraintLeft_toRightOf="@id/img"
-        app:layout_constraintTop_toBottomOf="@id/name_last" />
-
-    <TextView
         android:id="@+id/text_industry_expertise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
         android:layout_marginTop="18dp"
-        android:text="Industry Expertise:"
+        android:text="Fields of Expertise:"
         android:textSize="16sp"
         app:fontFamily="@font/roboto_light"
         app:layout_constraintLeft_toRightOf="@id/img"
@@ -79,7 +77,7 @@
         app:layout_constraintStart_toStartOf="@id/text_industry_expertise"
         app:layout_constraintTop_toBottomOf="@id/text_industry_expertise" />
 
-    <com.example.sandbox.views.DividerLine
+    <com.creators.sandbox.views.DividerLine
         android:id="@+id/dividerLine2"
         android:layout_width="match_parent"
         android:layout_height="3dp"
@@ -89,16 +87,30 @@
 
 
     <TextView
-        android:id="@+id/text_nurse_certified"
-        android:layout_width="match_parent"
+        android:id="@+id/nurse_certified"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
         android:drawableStart="@drawable/ic_check_green_24dp"
-        android:text="5 Certified Nurse Reviews"
+        android:text="5"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img"/>
+
+    <TextView
+        android:id="@+id/text_nurse_certified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Certified Nurse Reviews"
+        android:textStyle="bold"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="3dp"
+        app:layout_constraintLeft_toRightOf="@id/nurse_certified"
+        app:layout_constraintBottom_toBottomOf="@id/nurse_certified"
+        app:layout_constraintTop_toTopOf="@id/nurse_certified"
+
+        />
 
 
     <TextView
@@ -113,7 +125,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_nurse_certified" />
 
-    <com.example.sandbox.views.ProgressBarHorizontal
+    <com.creators.sandbox.views.ProgressBarHorizontal
         android:id="@+id/rating_bedside_manners"
         android:layout_width="match_parent"
         android:layout_height="24dp"
@@ -124,29 +136,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_progress_bar_bsm" />
 
-    <TextView
-        android:id="@+id/text_progress_bar_ie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="18dp"
-        android:text="Industry expertise"
-        android:textSize="16sp"
-        app:fontFamily="@font/roboto_light"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rating_bedside_manners" />
 
-    <com.example.sandbox.views.ProgressBarHorizontal
-        android:id="@+id/rating_industry_expertise"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recView"
         android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_progress_bar_ie" />
-
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/rating_bedside_manners"/>
 
 
 

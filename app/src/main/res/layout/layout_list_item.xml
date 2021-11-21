@@ -15,7 +15,7 @@
 
 
     <!-- Divider line placed when user items are consecutive-->
-    <com.example.sandbox.views.DividerLine
+    <com.creators.sandbox.views.DividerLine
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

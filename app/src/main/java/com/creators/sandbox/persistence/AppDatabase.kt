@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.creators.sandbox.models.*
 
-@Database(entities = [Doctor::class], version = 39)
+@Database(entities = [Doctor::class], version = 40)
 
 abstract class AppDatabase: RoomDatabase() {
 

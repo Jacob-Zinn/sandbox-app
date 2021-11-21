@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.creators.sandbox.models.AuthenticatedUser
 import com.creators.sandbox.models.Doctor
 
 @Dao
@@ -13,15 +12,13 @@ interface DoctorsDao {
 
     @Query("""
         SELECT * FROM doctor 
-        WHERE (
-        doctor_qualities_1 LIKE (:quality1) 
-        OR doctor_qualities_2 LIKE (:quality2) 
-        OR doctor_qualities_2 LIKE (:quality3)
-        ) AND (
-        expertise_1 LIKE (:expertise1)
-        OR expertise_2 LIKE (:expertise2)
-        OR expertise_3 LIKE (:expertise3)
-        )
+        WHERE doctor_qualities_1 LIKE :quality1 
+        AND doctor_qualities_2 LIKE :quality2 
+        AND doctor_qualities_2 LIKE :quality3
+        AND 
+        expertise_1 LIKE :expertise1
+        AND expertise_2 LIKE :expertise2
+        AND expertise_3 LIKE :expertise3
         """)
     suspend fun getFilteredDoctors(
         quality1: String,
@@ -42,15 +39,14 @@ interface DoctorsDao {
 
     @Query("""
         SELECT * FROM doctor 
-        WHERE (
-        doctor_qualities_1 LIKE (:quality1) 
-        OR doctor_qualities_2 LIKE (:quality2) 
-        OR doctor_qualities_2 LIKE (:quality3)
-        ) AND (
-        expertise_1 LIKE (:expertise1)
-        OR expertise_2 LIKE (:expertise2)
-        OR expertise_3 LIKE (:expertise3)
-        )
+        WHERE
+        doctor_qualities_1 LIKE :quality1 
+        AND doctor_qualities_2 LIKE :quality2
+        AND doctor_qualities_2 LIKE :quality3
+        AND 
+        expertise_1 LIKE :expertise1
+        AND expertise_2 LIKE :expertise2
+        AND expertise_3 LIKE :expertise3
         ORDER BY distance ASC
         """)
     suspend fun filteredDoctorsByDistance(
@@ -64,15 +60,14 @@ interface DoctorsDao {
 
     @Query("""
         SELECT * FROM doctor 
-        WHERE (
-        doctor_qualities_1 LIKE (:quality1) 
-        OR doctor_qualities_2 LIKE (:quality2) 
-        OR doctor_qualities_2 LIKE (:quality3)
-        ) AND (
-        expertise_1 LIKE (:expertise1)
-        OR expertise_2 LIKE (:expertise2)
-        OR expertise_3 LIKE (:expertise3)
-        )
+        WHERE
+        doctor_qualities_1 LIKE :quality1 
+        AND doctor_qualities_2 LIKE :quality2 
+        AND doctor_qualities_2 LIKE :quality3
+        AND 
+        expertise_1 LIKE :expertise1
+        AND expertise_2 LIKE :expertise2
+        AND expertise_3 LIKE :expertise3
         ORDER BY bedside_manners DESC
         """)
     suspend fun filteredDoctorsByCare(
@@ -86,15 +81,14 @@ interface DoctorsDao {
 
     @Query("""
         SELECT * FROM doctor 
-        WHERE (
-        doctor_qualities_1 LIKE (:quality1) 
-        OR doctor_qualities_2 LIKE (:quality2) 
-        OR doctor_qualities_2 LIKE (:quality3)
-        ) AND (
-        expertise_1 LIKE (:expertise1)
-        OR expertise_2 LIKE (:expertise2)
-        OR expertise_3 LIKE (:expertise3)
-        )
+        WHERE
+        doctor_qualities_1 LIKE :quality1 
+        AND doctor_qualities_2 LIKE :quality2 
+        AND doctor_qualities_2 LIKE :quality3
+        AND 
+        expertise_1 LIKE :expertise1
+        AND expertise_2 LIKE :expertise2
+        AND expertise_3 LIKE :expertise3
         ORDER BY years_experience DESC
         """)
     suspend fun filteredDoctorsByExperience(
@@ -117,11 +111,18 @@ interface DoctorsDao {
     suspend fun doctorsByCare(): List<Doctor>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertList(doctorsList: List<Doctor>): List<Long>
+    suspend fun insertList(doctors: List<Doctor>): List<Long>
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(feed: Doctor): Long
 
 
     @Query("SELECT * FROM doctor WHERE id LIKE :id")
     suspend fun seachDoctorById(id: Int) : Doctor
+
+    @Query("SELECT * FROM doctor")
+    suspend fun getAllDoctors() : List<Doctor>
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    suspend fun insertAndReplace(doctor: Doctor): Long

@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
-import com.creators.sandbox.databinding.LayoutListItemBinding
 import com.creators.sandbox.databinding.PreviewDoctorListItemBinding
 import com.creators.sandbox.models.Doctor
-import com.creators.sandbox.models.ListItem
 
 class PreviewDoctorListAdapter constructor(
     private val interaction: Interaction? = null
@@ -127,6 +125,14 @@ class PreviewDoctorListAdapter constructor(
             itemView.setOnClickListener {
                 interaction?.onItemSelected(bindingAdapterPosition, item, "")
             }
+            itemBinding.nameFirst.text = item.first_name
+            itemBinding.nameLast.text = item.last_name
+            itemBinding.nurseDesc.text = item.doctor_desciption_1
+            itemBinding.yearsExpert.text = item.years_experience.toString()
+            itemBinding.qualities.text = "${item.doctor_qualities_1}, ${item.doctor_qualities_2}, and ${item.doctor_qualities_3}"
+            itemBinding.numberNurseCert.text = ((item.id * 7) % 5).toString()
+            itemBinding.industryExpertise.text = "${item.expertise_1}, ${item.expertise_2}, and ${item.expertise_3}"
+
         }
     }
 

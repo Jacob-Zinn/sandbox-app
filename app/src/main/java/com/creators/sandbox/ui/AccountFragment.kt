@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.creators.sandbox.adapters.PreviewDoctorListAdapter
 import com.creators.sandbox.databinding.FragmentAccountBinding
+import com.creators.sandbox.models.Doctor
 import com.creators.sandbox.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,11 +54,16 @@ class AccountFragment: BaseFragment(),
             binding.noResults.visibility = View.VISIBLE
         } else {
             binding.noResults.visibility = View.GONE
+            val newList : MutableList<Doctor> = mutableListOf()
+            newList.add(viewModel.viewingDoctor.value!!)
+
             recViewAdapter.apply {
                 submitList(
-                    list = viewModel.favoriteDoctorsList
+                    list = newList
                 )
             }
+
+            initRecView()
         }
     }
 

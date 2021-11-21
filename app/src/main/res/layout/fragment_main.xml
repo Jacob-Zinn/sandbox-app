@@ -1,114 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="18dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainFragment">
 
-    <View
-        android:id="@+id/focusable_view"
-        android:layout_width="0.5dp"
-        android:layout_height="0.5dp"
-        android:focusableInTouchMode="true">
-
-    </View>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/feed_holder"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:id="@+id/filter_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Find a psychiatrist."
+        android:paddingBottom="9dp"
+        android:textSize="30sp"
+        app:fontFamily="@font/roboto_bold"
+        />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/linked_athletes_rec_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey1"
-            android:elevation="15dp"
-            android:overScrollMode="always" />
 
-        <!-- START Views displayed if feed null or empty -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/getting_started"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:elevation="6dp"
-            android:visibility="gone">
+    <TextView
+        android:id="@+id/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:paddingBottom="9dp"
+        android:text="Accurate. Unbiased. Information."
+        android:textSize="16sp"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter_title" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical">
+    <TextView
+        android:id="@+id/search_quick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_thin"
+        android:paddingBottom="9dp"
+        android:text="instant search"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sub_title" />
 
-                <TextView
-                    android:id="@+id/getting_started_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:text="@string/link_a_polar_or_garmin_account_to_get_started"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/roboto_medium"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/near_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Near Me"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_quick" />
 
-                <TextView
-                    android:id="@+id/getting_started_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/getting_started_title"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="9dp"
-                    android:includeFontPadding="false"
-                    android:lineSpacingExtra="0dp"
-                    android:text="@string/ride_with_gps_and_your_sessions_will_appear_here"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/roboto_light"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/getting_started_button"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/getting_started_title"
-                    tools:ignore="RtlSymmetry" />
+    <Button
+        android:id="@+id/experience_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Experienced"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/near_btn" />
 
-                <Button
-                    android:id="@+id/getting_started_button"
-                    android:layout_width="140dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/animated_red_button"
-                    android:text="@string/link_gps_watch"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto_bold"
-                    app:layout_constraintBottom_toBottomOf="@id/getting_started_description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/getting_started_title"
-                    app:layout_constraintTop_toTopOf="@id/getting_started_description" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/personable_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="18dp"
 
-        </androidx.cardview.widget.CardView>
+        android:text="Personable"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experience_btn" />
 
-        <!-- END Views displayed if feed null or empty -->
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/search_advanced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_thin"
+        android:paddingBottom="9dp"
+        android:text="Thoughtful search"
+        android:layout_marginTop="36dp"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personable_btn" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/feed_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+    <Button
+        android:id="@+id/thoughtful_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/animated_red_button_rounded"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Find My Perfect Match"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_advanced" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

@@ -21,9 +21,12 @@
         <entry key="app/src/main/res/drawable-xxhdpi/button_white_drawable.xml" value="0.4114583333333333" />
         <entry key="app/src/main/res/drawable-xxhdpi/round_bottom_left_corner_white_bg.xml" value="0.4114583333333333" />
         <entry key="app/src/main/res/drawable/animated_grey_outline_button.xml" value="0.43072916666666666" />
+        <entry key="app/src/main/res/drawable/animated_red_button_rounded.xml" value="0.40512820512820513" />
         <entry key="app/src/main/res/drawable/bottom_nav_icon_account_selector.xml" value="0.4114583333333333" />
+        <entry key="app/src/main/res/drawable/button_light_red_drawable_rounded.xml" value="0.40512820512820513" />
         <entry key="app/src/main/res/drawable/button_main_drawable.xml" value="0.4114583333333333" />
         <entry key="app/src/main/res/drawable/button_red_drawable.xml" value="0.4114583333333333" />
+        <entry key="app/src/main/res/drawable/button_red_drawable_rounded.xml" value="0.40512820512820513" />
         <entry key="app/src/main/res/drawable/button_segment_drawable.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/drawable/drop_shadow_background.xml" value="0.43072916666666666" />
         <entry key="app/src/main/res/drawable/grey_to_red_button.xml" value="0.4114583333333333" />
@@ -45,15 +48,20 @@
         <entry key="app/src/main/res/drawable/sessions_filter_bar_background.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.2536873156342183" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/filter_list_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_data.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_change_password.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_detail_doctor.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_detail_session.xml" value="0.3015625" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.3953125" />
+        <entry key="app/src/main/res/layout/fragment_filter.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_launcher.xml" value="0.353125" />
         <entry key="app/src/main/res/layout/fragment_leaderboard.xml" value="0.3892307692307692" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_main_feed.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_preview_doctors.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.4" />
         <entry key="app/src/main/res/layout/fragment_sessions.xml" value="0.346875" />
         <entry key="app/src/main/res/layout/fragment_starting_guide.xml" value="0.3953125" />
@@ -66,6 +74,7 @@
         <entry key="app/src/main/res/layout/layout_cancel_continue_dialog.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/layout_detail_session_list_item.xml" value="0.3859375" />
         <entry key="app/src/main/res/layout/layout_device_list_item.xml" value="0.3953125" />
+        <entry key="app/src/main/res/layout/layout_filter_list_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/layout_ghost_athlete_account_list_item.xml" value="0.45" />
         <entry key="app/src/main/res/layout/layout_give_feedback.xml" value="0.396875" />
         <entry key="app/src/main/res/layout/layout_hidden_sessions_list_item.xml" value="0.3953125" />
@@ -80,6 +89,7 @@
         <entry key="app/src/main/res/layout/layout_main_feed_list_item_user.xml" value="0.38385416666666666" />
         <entry key="app/src/main/res/layout/layout_main_feed_list_item_user_last.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/layout/layout_no_more_results.xml" value="0.396875" />
+        <entry key="app/src/main/res/layout/layout_nurse_review_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/layout_sessions_list_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/layout_sessions_sync_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/layout/layout_sync_list_item.xml" value="0.3953125" />
@@ -87,6 +97,7 @@
         <entry key="app/src/main/res/layout/layout_sync_list_item_modified.xml" value="0.5" />
         <entry key="app/src/main/res/layout/layout_sync_loading_list_item.xml" value="0.3796875" />
         <entry key="app/src/main/res/layout/layout_twelve_week_target_dialog.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/layout/preview_doctor_list_item.xml" value="0.3953125" />
         <entry key="app/src/main/res/menu/account_menu.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/menu/add_sessions_menu.xml" value="0.3859375" />
         <entry key="app/src/main/res/menu/main_bottom_navigation_menu.xml" value="0.29322916666666665" />

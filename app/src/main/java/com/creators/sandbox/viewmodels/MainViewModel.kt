@@ -20,13 +20,14 @@ import timber.log.Timber
 import javax.inject.Inject
 import com.google.firebase.database.DataSnapshot
 
-import androidx.annotation.NonNull
-
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
+import kotlin.math.exp
 
 
 @HiltViewModel
@@ -59,7 +60,7 @@ class MainViewModel @Inject constructor(
     val doctorRef = rootRef.child("doctors")
 
     val database = Firebase.database
-    val myRef = database.getReference("core-depth-332615-default-rtdb")
+    val myRef = database.getReference("doctors")
 
     val favoriteDoctorsList : MutableList<Doctor> = mutableListOf()
     var tmpDoctorList: MutableList<Doctor> = mutableListOf()
@@ -72,45 +73,14 @@ class MainViewModel @Inject constructor(
 
     fun refreshData() {
 
-
-        // Read from the database
-//        rootRef.addValueEventListener(object: ValueEventListener() {
-//
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                for (dataSnapshot in snapshot.children) {
-//                    val doctor: Doctor? = dataSnapshot.getValue(Doctor::class.java)
-//                    if (doctor != null) {
-//                        tmpDoctorList.add(doctor)
-//                        Timber.d("logging doctor: $doctor")
-//                    }
-//                }
-//                val value = snapshot.getValue<String>()
-//                Log.d(TAG, "Value is: " + value)
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Log.w(TAG, "Failed to read value.", error.toException())
-//            }
-//
-//        })
-
-        Timber.d("zzz Making it here")
-
-        doctorRef.addValueEventListener(object : ValueEventListener {
+        myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Timber.d("Data change executedzzz")
-                for (dataSnapshot in snapshot.children) {
-                    val doctor: Doctor? = dataSnapshot.getValue(Doctor::class.java)
-                    if (doctor != null) {
-                        tmpDoctorList.add(doctor)
-                    }
-                }
-                Timber.d("zzz doctors $tmpDoctorList")
+                Timber.d("zzz Data changed")
+
+
+                tmpDoctorList = parseData(snapshot).toMutableList()
 
                 updateDoctorsCache(tmpDoctorList)
-                tmpDoctorList.clear()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -118,67 +88,44 @@ class MainViewModel @Inject constructor(
             }
         })
 
-
-
-
-
-
-//
-//
-//
-//
-//
-//        doctorRef.get()
-//            .addOnCompleteListener(OnCompleteListener<DataSnapshot?> { task ->
-//                if (!task.isSuccessful) {
-//                    Timber.e(task.exception,"firebase", "Error getting data")
-//                } else {
-//                    val result = task.result?.value
-//                    Timber.d("result from firebase : $result")
-////                    updateDoctorsCache(task.result?.value as List<Doctor>)
-////                    Timber.d("firebase", java.lang.String.valueOf(task.result.getValue()))
-//                }
-//            })
-
-//        val doctors: List<Doctor> = rootRef.child("core-depth-332615-default-rtdb").get().result?.value as List<Doctor>
-//        updateDoctorsCache(doctors)
-
-
-
-//        mDatabase.child("users").child(userId).get().addOnCompleteListener(
-//            OnCompleteListener<DataSnapshot?> { task ->
-//                if (!task.isSuccessful) {
-//                    Log.e("firebase", "Error getting data", task.exception)
-//                } else {
-//                    Log.d("firebase", java.lang.String.valueOf(task.result.getValue()))
-//                }
-//            })
-
     }
 
-    private fun parseData() {
+    private fun parseData(dataSnapshot: DataSnapshot) : List<Doctor>{
 
-//        if (getDataJob?.isActive != true) {
-//            getDataJob = viewModelScope.launch {
-//
-//                val apiDataBundle = mainRepository.getDataFromApi()
-//
-//                MainScope().launch(Dispatchers.Main) {
-//                    apiDataBundle.data?.let { newData ->
-//                        setNewData(newData)
-//                    }
-//                }
-//            }
-//        }
+        val doctors: MutableList<Doctor> = mutableListOf()
+
+        for( child in dataSnapshot.children) {
+            val jsonDoctor = child.value as HashMap<*,*>
+
+            val doctor = Doctor(
+                id  = (jsonDoctor["id"] as Long).toInt(),
+                first_name = jsonDoctor["first_name"] as String,
+                last_name = jsonDoctor["last_name"] as String,
+                bedside_manners = (jsonDoctor["bedside_manners"] as Long).toInt(),
+                years_experience = (jsonDoctor["years_experience"] as Long).toInt(),
+                expertise_1 = jsonDoctor["expertise_1"] as String,
+                expertise_2 = jsonDoctor["expertise_2"] as String,
+                expertise_3 = jsonDoctor["expertise_3"] as String,
+                location = jsonDoctor["location"] as String,
+                distance = (jsonDoctor["id"] as Long).toInt(),
+                doctor_qualities_1 = jsonDoctor["doctors_qualities_1"] as String,
+                doctor_qualities_2 = jsonDoctor["doctors_qualities_2"] as String,
+                doctor_qualities_3 = jsonDoctor["doctors_qualities_3"] as String,
+                doctor_desciption_1 = jsonDoctor["doctor_description_1"] as String,
+                doctor_desciption_2 = jsonDoctor["doctor_description_2"] as String,
+                doctor_desciption_3 = jsonDoctor["doctor_description_3"] as String
+            )
+
+            doctors.add(doctor)
+
+        }
+        return doctors
+
     }
 
     private fun updateDoctorsCache(doctors: List<Doctor>) {
-        if (getDataJob?.isActive != true) {
-            getDataJob = viewModelScope.launch {
-
-                val apiDataBundle = mainRepository.updateCache(doctors)
-
-            }
+        viewModelScope.launch {
+            mainRepository.updateCache(doctors)
         }
     }
 
@@ -195,6 +142,52 @@ class MainViewModel @Inject constructor(
                     apiDataBundle.errorResponse?.let {
                         Timber.e(Exception(), "Failed to filter. Message:  ${it.response.message}" )
                     }
+                }
+            }
+        }
+    }
+
+
+    fun getFilteredDoctorsByDistance() {
+        viewModelScope.launch {
+            val apiDataBundle = mainRepository.getFilteredDoctorsByDistance(queries)
+
+            MainScope().launch(Dispatchers.Main) {
+                apiDataBundle.data?.let { newData ->
+                    setDoctors(newData)
+                }
+                apiDataBundle.errorResponse?.let {
+                    Timber.e(Exception(), "Failed to filter. Message:  ${it.response.message}")
+                }
+            }
+        }
+    }
+
+    fun getFilteredDoctorsByCare() {
+        viewModelScope.launch {
+            val apiDataBundle = mainRepository.getFilteredDoctorsByCare(queries)
+
+            MainScope().launch(Dispatchers.Main) {
+                apiDataBundle.data?.let { newData ->
+                    setDoctors(newData)
+                }
+                apiDataBundle.errorResponse?.let {
+                    Timber.e(Exception(), "Failed to filter. Message:  ${it.response.message}")
+                }
+            }
+        }
+    }
+
+    fun getFilteredDoctorsByExperience() {
+        viewModelScope.launch {
+            val apiDataBundle = mainRepository.getFilteredDoctorsByExperience(queries)
+
+            MainScope().launch(Dispatchers.Main) {
+                apiDataBundle.data?.let { newData ->
+                    setDoctors(newData)
+                }
+                apiDataBundle.errorResponse?.let {
+                    Timber.e(Exception(), "Failed to filter. Message:  ${it.response.message}")
                 }
             }
         }
@@ -262,6 +255,7 @@ class MainViewModel @Inject constructor(
         super.onCleared()
         getDataJob?.cancel()
     }
+
 
 
 }
